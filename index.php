@@ -1,12 +1,4 @@
-<?php 
-//-----includes------
-	require_once 'functions/functions.php';
-//-----/includes-----
-	
-	session_destroy(); 
 
-	date_default_timezone_set("BRAZIL/EAST"); 
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -33,12 +25,14 @@
 	        <div class="row justify-content-center align-items-center body">
 	            <div class="col-md-8 col-sm-12 col-lg-5">
 	                
-	                <h2> Upload Arquivo CSV</h2>
-	                <form method="post" action="gCSV.php">
+	                <h2 class="text-center"> Upload Arquivo CSV</h2>
+	                <?= getFlash('mensagem'); ?>
+	                <form method="post" action="gImportar.php" enctype="multpart/form-data">
 	                	<div class="jumbotron">
 		                	<div class="chekbox">
-		                		<label> <input type="file" name="csv" class="form-control" /></label>
+		                		<label><input type="file" name="csv" /></label>
 		                	</div>
+		                	<button type="submit" class="btn btn-secondary" name="importar"> Importar </button>
 	                	</div>
 	                </form>
 	            </div>

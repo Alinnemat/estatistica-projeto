@@ -21,8 +21,10 @@
 						flash("mensagem", "Extensão Inválida!", "danger");
 						header("Location: index.php");
 					} else {
-						flash("mensagem", "Extensão Válida!", "success");
-						header("Location: index.php");
+						$objeto = fopen($arquivo, 'r');
+							while (($dados = fgetcsv($objeto, 1000, ";")) !== FALSE) {
+								
+							}
 					}
 
 				}

@@ -1,4 +1,4 @@
-
+<?php require_once 'functions/functions.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -27,10 +27,10 @@
 	                
 	                <h2 class="text-center"> Upload Arquivo CSV</h2>
 	                <?= getFlash('mensagem'); ?>
-	                <form method="post" action="gImportar.php" enctype="multpart/form-data">
+	                <form method="post" action="gImportar.php" enctype="multipart/form-data">
 	                	<div class="jumbotron">
 		                	<div class="chekbox">
-		                		<label><input type="file" name="csv" /></label>
+		                		<label><input type="file" name="file" /></label>
 		                	</div>
 		                	<button type="submit" class="btn btn-secondary" name="importar"> Importar </button>
 	                	</div>

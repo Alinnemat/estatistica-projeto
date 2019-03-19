@@ -47,26 +47,33 @@
 						} else {
 
 							?>
-							<table class="table-responsive">
+							<div class="table-responsive">
+                                    <table class="table table-bordered table-hover js-basic-example dataTable table-custom">
 								<?php
 
 
 								$csv = file($arquivo);
 								foreach ($csv as $row => $line) {
 									$th[] = explode(";", utf8_encode($line));
+									$td[] = explode(" ", utf8_encode($line));
 									$row++;
-									$column = str_getcsv($line, ';');
+									$column = str_getcsv(utf8_encode($line), ';');
+									
 									if($row == 1){
+
 										?>
-										<tr>
+										<thead>
+
+											<tr>
 										
 										<?php
 
 										foreach($th as $value){
-											for ($i=0; $i < count($value); $i++) { 
+											$cols = count($value);
+											for ($i=0; $i < $cols; $i++) { 
 												# code...
 											?>
-												<th class="lead th col-2" style="font-size: 12px"><?= $value[$i] ?></th>
+												<th class="lead th col-1" style="font-size: 12px"><?= $value[$i] ?></th>
 											<?php
 
 											}
@@ -77,13 +84,35 @@
 										
 										}
 										?>
-											<tr>
+										</tr>
+										</thead>
 
 
 										<?php
 									
 										
 									}
+									if($row > 1){
+									?>
+										<tbody>
+										
+										<tr>
+											<?php
+
+										
+											for ($i=0; $i < count($column); $i++) { 
+												# code...
+											?>
+											<td class="lead th col-1" style="font-size: 12px"><?=$column[$i]?><td>
+											<?php
+
+											}
+										
+										?>	
+										</tr>
+									</body>
+									<?php
+									}	
 									/*
 									if ($row > 1) {
 										echo 'Está na linha: '.utf8_encode($row).' e na Coluna: '.utf8_encode( $column[13]). "<br />\n";
@@ -92,6 +121,7 @@
 								}
 								?>
 								</table>
+							</div>
 								<?php
 							}
 						}

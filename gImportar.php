@@ -48,95 +48,65 @@
 
 							?>
 							<div class="table-responsive">
-                                    <table class="table table-bordered table-hover js-basic-example dataTable table-custom">
-								<?php
-
-
-								$csv = file($arquivo);
-								foreach ($csv as $row => $line) {
-									$th[] = explode(";", utf8_encode($line));
-									$td[] = explode(" ", utf8_encode($line));
-									$row++;
-									$column = str_getcsv(utf8_encode($line), ';');
-									
-									if($row == 1){
-
-										?>
-										<thead>
-
-											<tr>
-										
-										<?php
-
-										foreach($th as $value){
-											$cols = count($value);
-											for ($i=0; $i < $cols; $i++) { 
-												# code...
-											?>
-												<th class="lead th col-1" style="font-size: 12px"><?= $value[$i] ?></th>
-											<?php
-
-											}
-
-											
-												
-											
-										
-										}
-										?>
-										</tr>
-										</thead>
-
-
-										<?php
-									
-										
-									}
-									if($row > 1){
-									?>
-										<tbody>
-										
-										<tr>
-											<?php
-
-										
-											for ($i=0; $i < count($column); $i++) { 
-												# code...
-											?>
-											<td class="lead th col-1" style="font-size: 12px"><?=$column[$i]?><td>
-											<?php
-
-											}
-										
-										?>	
-										</tr>
-									</body>
+								<table class="table table-bordered table-hover js-basic-example dataTable table-custom">
 									<?php
-									}	
-									/*
-									if ($row > 1) {
-										echo 'Está na linha: '.utf8_encode($row).' e na Coluna: '.utf8_encode( $column[13]). "<br />\n";
-									}
-									*/
+									$csv = file($arquivo);
+									foreach ($csv as $row => $line) {
+										$th[] = explode(";", utf8_encode($line));
+										$td[] = explode(" ", utf8_encode($line));
+										$row++;
+										$column = str_getcsv(utf8_encode($line), ';');
+										if($row == 1){
+											?>
+											<thead>
+												<tr>
+													<?php
+													foreach($th as $value){
+														$cols = count($value);
+														for ($i=0; $i < $cols; $i++) { 
+															?>
+															<th class="lead th col-1" style="font-size: 12px"><?= $value[$i] ?></th>
+															<?php
+														}
+													}
+													?>
+												</tr>
+											</thead>
+											<?php
+										}
+										if($row > 1){
+											?>
+											<tbody>
+
+												<tr>
+													<?php
+													for ($i=0; $i < count($column); $i++) { 
+														?>
+														<td class="lead th col-1" style="font-size: 12px"><?=$column[$i]?><td>
+															<?php
+														}
+														?>	
+													</tr>
+												</body>
+												<?php
+											}	
 								}
 								?>
-								</table>
-							</div>
-								<?php
-							}
-						}
+							</table>
+						</div>
+						<?php
 					}
 				}
-
-
-				?>
-				<!--Bootstrap-->
-				<!-- Primeiro o jQuery, depois o Popper.js, e depois o Bootstrap JS -->
-				<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-				<script src="js/bootstrap.min.js"></script>
-				<!--/Bootstrap-->
-			</body>
-			</html>
+			}
+		}
+		?>
+		<!--Bootstrap-->
+		<!-- Primeiro o jQuery, depois o Popper.js, e depois o Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<!--/Bootstrap-->
+	</body>
+	</html>
 
 

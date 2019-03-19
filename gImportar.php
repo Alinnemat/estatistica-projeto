@@ -52,19 +52,15 @@
 
 							
 							$row = 1;
-							if (($handle = fopen($arquivo, "r")) !== FALSE)
-							{
+							if (($handle = fopen($arquivo, "r")) !== FALSE){
   //Passagem pelas linhas
-								while (($data = fgetcsv($handle, null, ";")) !== FALSE)
-								{
+								while (($data = fgetcsv($handle, null, ";")) !== FALSE){
 									$num = count($data);
 									$row++;
       // Passagem pelas colunas
-									for ($col = 0; $col < $num; $col++)
-									{
+									for ($col = 0; $col < $num; $col++){
           //Printando apenas a coluna 13
-										if ($col == 1)
-										{
+										if ($col == 1){
 											echo 'Está na linha: '.utf8_encode($row).' e na Coluna: '.utf8_encode($data[$col]). "<br />\n";
 										}
 									}

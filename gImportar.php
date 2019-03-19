@@ -20,7 +20,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
 </head>
 <body class="">
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row justify-content-center align-items-center">
 			<?php
 //-----includes------
@@ -37,7 +37,7 @@
 					$ext = explode(".", $nome);
 					$extesao = $ext[1];
 					if(!isset($arquivo) || empty($arquivo)){
-						flash("mensagem", "Por favor, insira um arquivo!", "danger");
+						flash("mensagem", "Por favor, insira um arquivo CSV!", "danger");
 						header("Location: index.php");
 					} else {
 					//processe
@@ -66,7 +66,7 @@
 											for ($i=0; $i < count($value); $i++) { 
 												# code...
 											?>
-												<th><?= $value[$i] ?></th>
+												<th class="lead th col-2" style="font-size: 12px"><?= $value[$i] ?></th>
 											<?php
 
 											}

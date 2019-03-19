@@ -22,9 +22,32 @@
 						header("Location: index.php");
 					} else {
 						$objeto = fopen($arquivo, 'r');
+						?>
+					<table>
+						<thead align="center">
+							<tr>
+								<th>Nome</th>
+								<th>Sobrenome</th>                   
+							</tr>
+						</thead>
+						<tbody align="center">
+							<?php  
 							while (($dados = fgetcsv($objeto, 1000, ";")) !== FALSE) {
-								
+								$nome = utf8_encode($dados[0]);
+								$sobrenome = utf8_encode($dados[1]);  
+							?>
+								<tr>
+
+									<td><?= $nome; ?></td> 
+									<td><?= $sobrenome; ?></td> 
+								</tr>
+							<?php
 							}
+							?>
+						</tbody>
+					</table> 
+				<?php
+							
 					}
 
 				}

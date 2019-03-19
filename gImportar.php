@@ -46,44 +46,67 @@
 							header("Location: index.php");
 						} else {
 
-						?>
-						<table class="table-responsive">
-						<?php
-
-							
-							$row = 1;
-							if (($handle = fopen($arquivo, "r")) !== FALSE){
-  //Passagem pelas linhas
-								while (($data = fgetcsv($handle, null, ";")) !== FALSE){
-									$num = count($data);
-									$row++;
-      // Passagem pelas colunas
-									for ($col = 0; $col < $num; $col++){
-          //Printando apenas a coluna 13
-										if ($col == 1){
-											echo 'Está na linha: '.utf8_encode($row).' e na Coluna: '.utf8_encode($data[$col]). "<br />\n";
-										}
-									}
-								}
-								fclose($handle);
-							}
 							?>
-						</table>
-						<?php
+							<table class="table-responsive">
+								<?php
+
+
+								$csv = file($arquivo);
+								foreach ($csv as $row => $line) {
+									$th[] = explode(";", utf8_encode($line));
+									$row++;
+									$column = str_getcsv($line, ';');
+									if($row == 1){
+										?>
+										<tr>
+										
+										<?php
+
+										foreach($th as $value){
+											for ($i=0; $i < count($value); $i++) { 
+												# code...
+											?>
+												<th><?= $value[$i] ?></th>
+											<?php
+
+											}
+
+											
+												
+											
+										
+										}
+										?>
+											<tr>
+
+
+										<?php
+									
+										
+									}
+									/*
+									if ($row > 1) {
+										echo 'Está na linha: '.utf8_encode($row).' e na Coluna: '.utf8_encode( $column[13]). "<br />\n";
+									}
+									*/
+								}
+								?>
+								</table>
+								<?php
+							}
 						}
 					}
 				}
-			}
 
 
-			?>
-			<!--Bootstrap-->
-			<!-- Primeiro o jQuery, depois o Popper.js, e depois o Bootstrap JS -->
-			<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-			<script src="js/bootstrap.min.js"></script>
-			<!--/Bootstrap-->
-		</body>
-		</html>
+				?>
+				<!--Bootstrap-->
+				<!-- Primeiro o jQuery, depois o Popper.js, e depois o Bootstrap JS -->
+				<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+				<script src="js/bootstrap.min.js"></script>
+				<!--/Bootstrap-->
+			</body>
+			</html>
 
 

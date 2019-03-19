@@ -46,53 +46,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 				header("Location: index.php");
 			} else {
 				
-				?>
-				<div class="table-responsive">
-                <table class="table table-bordered table-hover js-basic-example dataTable table-custom">
-				
-					<thead>
-						<tr>
-							<?php
+							
 							$objeto = fopen($arquivo, 'r');
-							//$d = 17;
-							$count = 17;
-							while (($dados = fgetcsv($objeto, 1000, ";")) !== FALSE) {
-								
-								//titulo das colunas
-								for ($i=0; $i < $count; $i++) { 
-									echo "<th>".$dados[$i]."</th>";
-								}
-
-								
-								
-
+							echo "<table>";
+							while (!feof($objeto)) {
+								echo "<tr>";
+								$str = fgetcsv($objeto);
+									for ($i=0; $i < count($str); $i++) { 
+										# code...
+										echo "<td>".utf8_encode($str[$i])."</td>";
+									}
+								echo "<tr>";
 							}
-							fclose($objeto);
-							?>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-
-							<?php
-							$objeto = fopen($arquivo, 'r');
-							while (($dados = fgetcsv($objeto, 1000, ";")) !== FALSE) {
-								$max = 17;
-
-								for ($i=1; $i < $max; $i++) { 
-									echo "<td>".print_r($dados[$i])."</td>";
-								}
+							
+								//echo "<tr>";
 								//
 								
 
-							}
-							fclose($objeto);
-							?>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<?php			
+							
+							//fclose($objeto);
+							echo "</table>";
+							
+											
 			}
 		}
 	}

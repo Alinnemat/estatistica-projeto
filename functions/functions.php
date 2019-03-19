@@ -69,4 +69,16 @@
 		return $rows;
 	}
 
+	function morte($path){
+		$headler = fopen($path, 'r');
+		$data = Array();
+
+			if ($headler !== FALSE) {
+				while ($dados = fgetcsv($headler, 17, ";") !==FALSE) {
+					$data[] = utf8_encode($dados);
+				}
+			}
+		return $data;
+	}
+
 ?>

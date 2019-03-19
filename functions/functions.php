@@ -61,18 +61,12 @@
 //Funções Relacionadas ao Modulo de Login
 	
 	#novo usuario
-	function newUser($usuario){
-		$conn = dbConnect();
-		$usuario = array(
-			"usuario" => "$usuario"
-		); 
-		$query = dbCreate("usuario", $usuario);
-			if($query){
-				return true;
-			} else {
-				return false;
+	function readCSV($filename){
+		$rows = Array();
+			foreach (file($filename, FILE_IGNORE_NEW_LINES) as $line) {
+				$rows[] = str_getcsv($line);
 			}
-		dbClose($conn);
+		return $rows;
 	}
 
 ?>

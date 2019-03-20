@@ -48,7 +48,7 @@
 
 							?>
 							<div class="table-responsive text-nowrap">
-								<table id="dtHorizontalExample" class="table table-striped table-hover table-bordered" cellspacing="0" width="100%">
+								<table id="dtHorizontalExample" class="table table-striped table-hover table-bordered" cellspacing="0">
 									<?php
 									$csv = file($arquivo);
 									foreach ($csv as $row => $line) {

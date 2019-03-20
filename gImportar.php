@@ -18,10 +18,17 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	<!--Google Fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
+	
+
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.semanticui.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row">
+	<div class="container" style="margin-top: 20px">
+        <div class="row">
+            
 			<?php
 //-----includes------
 			require_once 'functions/functions.php';
@@ -48,7 +55,7 @@
 
 							?>
 							<div class="table-responsive text-nowrap">
-								<table id="dtHorizontalExample" class="table table-striped table-hover table-bordered" cellspacing="0">
+								<table class="table table-striped table-hovered table-bordered ui celled display" cellspacing="0" >
 									<?php
 									$csv = file($arquivo);
 									foreach ($csv as $row => $line) {
@@ -63,7 +70,7 @@
 												<tr>
 													<?php
 													foreach($th as $value){
-														$cols = count($value);
+														$cols = 17;
 														for ($i=0; $i < $cols; $i++) { 
 															?>
 															<th scope="col" style="font-size: 12px"><?= $value[$i] ?></th>
@@ -79,7 +86,7 @@
 										?>
 										
 										<?php
-										if($row > 1){
+										if($row !== 1){
 											?>
 											<tbody>
 
@@ -96,8 +103,8 @@
 											</tbody>
 
 												<?php
-											}	
-								}
+										}	
+									}
 								?>
 								</table>
 							</div>
@@ -109,14 +116,43 @@
 			}
 		?>
 	</div>
+	</div>
 </div>
-
+		
 		<!--Bootstrap-->
 		<!-- Primeiro o jQuery, depois o Popper.js, e depois o Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-		<!--/Bootstrap-->
+		
+		
+    	
+		
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+		
+
+		<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js">
+		</script>
+		<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.semanticui.min.js">
+		</script>
+		<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
+		</script>
+
+		<script>
+			$(document).ready(function() {
+    $('.table').DataTable( {
+        "pagingType": "simple",
+        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+        "paging":   true,
+        "ordering": true,
+        "scrollY":        "400px",
+        "scrollCollapse": true,
+        "paging":         false
+    } );
+} );
+		</script>
 	</body>
 	</html>
 

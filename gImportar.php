@@ -55,7 +55,7 @@
 
 							?>
 							<div class="table-responsive text-nowrap">
-								<table class="table table-striped table-hovered table-bordered ui celled display" cellspacing="0" >
+								<table class="table table-striped table-hover ui celled" cellspacing="0" width="100%" >
 									<?php
 									$csv = file($arquivo);
 									foreach ($csv as $row => $line) {
@@ -143,13 +143,19 @@
 		<script>
 			$(document).ready(function() {
     $('.table').DataTable( {
-        "pagingType": "simple",
-        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-        "paging":   true,
-        "ordering": true,
+        "processing": true,
+        "paging":   false,
+        "ordering": false,
+        "scrollX":  true,
         "scrollY":        "400px",
-        "scrollCollapse": true,
-        "paging":         false
+        "scrollCollapse": false,
+        "paging":         false,
+        "searching": true,
+        "info": false,
+        "searchDelay": 350,
+        "search": {
+		    "smart": false
+		  }
     } );
 } );
 		</script>

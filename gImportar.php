@@ -10,8 +10,8 @@
 	<meta name="robots" content="index, folow" />
 	<!--Icone-->
 	<link rel="icon" type="image/x-icon" href="img/logo.ico">
-	<!-- CSS Personaliado -->
-	<link rel="stylesheet" href="css/style.css">
+	<!-- CSS Personaliado--> 
+	<link rel="stylesheet" href="css/table.css">
 	<!-- CSS do Bootstrap -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!--Font Awesome === ICONES MANEIROS-->
@@ -19,9 +19,9 @@
 	<!--Google Fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
 </head>
-<body class="">
+<body>
 	<div class="container-fluid">
-		<div class="row justify-content-center align-items-center">
+		<div class="row">
 			<?php
 //-----includes------
 			require_once 'functions/functions.php';
@@ -47,8 +47,8 @@
 						} else {
 
 							?>
-							<div class="table-responsive">
-								<table class="table table-bordered table-hover js-basic-example dataTable table-custom">
+							<div class="table-responsive text-nowrap">
+								<table id="dtHorizontalExample" class="table table-striped table-hover table-bordered" cellspacing="0" width="100%">
 									<?php
 									$csv = file($arquivo);
 									foreach ($csv as $row => $line) {
@@ -56,24 +56,28 @@
 										$td[] = explode(" ", utf8_encode($line));
 										$row++;
 										$column = str_getcsv(utf8_encode($line), ';');
+										?><?php
 										if($row == 1){
 											?>
-											<thead>
+											
 												<tr>
 													<?php
 													foreach($th as $value){
 														$cols = count($value);
 														for ($i=0; $i < $cols; $i++) { 
 															?>
-															<th class="lead th col-1" style="font-size: 12px"><?= $value[$i] ?></th>
+															<th scope="col" style="font-size: 12px"><?= $value[$i] ?></th>
 															<?php
 														}
 													}
 													?>
 												</tr>
-											</thead>
+											
 											<?php
 										}
+										?>
+										</thead>
+										<?php
 										if($row > 1){
 											?>
 											<tbody>
@@ -82,24 +86,30 @@
 													<?php
 													for ($i=0; $i < count($column); $i++) { 
 														?>
-														<td class="lead th col-1" style="font-size: 12px"><?=$column[$i]?><td>
+														<td class="lead th" colspan="1" style="font-size: 12px"><?=$column[$i]?></td>
 															<?php
 														}
 														?>	
-													</tr>
-												</body>
+												
+												</tr>
+											</tbody>
+
 												<?php
 											}	
 								}
 								?>
-							</table>
-						</div>
+								</table>
+							</div>
+
 						<?php
+						}
 					}
 				}
 			}
-		}
 		?>
+	</div>
+</div>
+
 		<!--Bootstrap-->
 		<!-- Primeiro o jQuery, depois o Popper.js, e depois o Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

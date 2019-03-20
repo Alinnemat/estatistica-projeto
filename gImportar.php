@@ -27,7 +27,7 @@
 </head>
 <body>
 	<div class="container" style="margin-top: 20px">
-        <div class="row">
+        <div class="row col-12">
             
 			<?php
 //-----includes------
@@ -54,8 +54,8 @@
 						} else {
 
 							?>
-							<div class="table-responsive text-nowrap">
-								<table class="table table-striped table-hover ui celled" cellspacing="0" width="100%" >
+							<div class="table-responsive text-nowrap ">
+								<table class="table  table-hover ui celled" cellspacing="0" style="width:100%" >
 									<?php
 									$csv = file($arquivo);
 									foreach ($csv as $row => $line) {
@@ -148,14 +148,12 @@
         "ordering": false,
         "scrollX":  true,
         "scrollY":        "400px",
-        "scrollCollapse": false,
+        "scrollCollapse": true,
         "paging":         false,
-        "searching": true,
+        "searching": false,
         "info": false,
-        "searchDelay": 350,
-        "search": {
-		    "smart": false
-		  }
+        "responsive": true,
+        
     } );
 } );
 		</script>

@@ -59,7 +59,7 @@
 										?><?php
 										if($row == 1){
 											?>
-											
+											<thead>
 												<tr>
 													<?php
 													foreach($th as $value){
@@ -72,11 +72,12 @@
 													}
 													?>
 												</tr>
+											</thead>
 											
 											<?php
 										}
 										?>
-										</thead>
+										
 										<?php
 										if($row > 1){
 											?>
@@ -86,7 +87,7 @@
 													<?php
 													for ($i=0; $i < count($column); $i++) { 
 														?>
-														<td class="lead th" colspan="1" style="font-size: 12px"><?=$column[$i]?></td>
+														<td class="lead th" style="font-size: 12px"><?=$column[$i]?></td>
 															<?php
 														}
 														?>	

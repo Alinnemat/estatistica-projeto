@@ -147,7 +147,7 @@
 					"scrollX": true,
 					"scrollY":        "400px",
 					"scrollCollapse": true,
-					"searching": true,
+					"searching": false,
 					"info": false,
 					"responsive": true,
 				});

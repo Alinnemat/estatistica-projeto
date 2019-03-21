@@ -147,7 +147,6 @@
 					"scrollX": true,
 					"scrollY":        "400px",
 					"scrollCollapse": true,
-					"paging":         false,
 					"searching": true,
 					"info": false,
 					"responsive": true,

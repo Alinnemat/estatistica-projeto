@@ -137,7 +137,7 @@
 			$('.table').DataTable({
 				"processing": true,
 				"paging":   false,
-				"ordering": true,
+				"ordering": false,
 				"scrollX": true,
 				"scrollY":        "400px",
 				"scrollCollapse": true,

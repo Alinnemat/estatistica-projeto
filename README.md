@@ -19,19 +19,19 @@ _Sistema para Importação de Planilhas em CSV._
 
 ### __Tela Inicial da Aplicação - Importação do Arquivo__
 <p align="center">
-  <img src="https://github.com/raissaqueiroz/csvimport/blob/master/screenshots/csvimport_tela_inicial.png" width=200 height=350/>
+  <img src="https://github.com/raissaqueiroz/importar-csv/blob/master/screenshots/csvimport_tela_inicial.png" width=400 height=200/>
 </p>
 <br><br> 
 
 ### __Tela Inicial da Aplicação - Validação de Envio de Formulário Vazio__
 <p align="center">
-  <img src="https://github.com/raissaqueiroz/csvimport/blob/master/screenshots/csvimport_tela_inicial_error.png" width=200 height=350/>
+  <img src="https://github.com/raissaqueiroz/importar-csv/blob/master/screenshots/csvimport_tela_inicial_error.png" width=400 height=200/>
 </p>
 <br><br> 
 
 ### __Tela de Resultados - Importação do Arquivo Enviado__
 <p align="center">
-  <img src="https://github.com/raissaqueiroz/csvimport/blob/master/screenshots/csvimport_tela_resultado.png" width=200 height=350/>
+  <img src="https://github.com/raissaqueiroz/importar-csv/blob/master/screenshots/csvimport_tela_resultado.png" width=400 height=200/>
 </p>
 <br><br> 
 

@@ -34,7 +34,10 @@
 			<?php
 			//-----includes------
 			require_once 'functions.php';
-			//carregaIncludes("functions/", array("config", "conexao", "database"));
+
+			// DEFINA O DELIMITADOR AQUI, MODIFICANDO O SEGUNDDO "" -> EX.: define("DELIMITADOR", ";");
+			define("DELIMITADOR", ",");
+
 			//-----/includes-----
 				if($_SERVER['REQUEST_METHOD'] == 'POST'){
 					if(isset($_POST['importar']) || !empty($_POST['importar'])){
@@ -60,10 +63,10 @@
 										<?php
 										$csv = file($arquivo);
 										foreach ($csv as $row => $line) {
-											$th[] = explode(";", utf8_encode($line));
+											$th[] = explode(DELIMITADOR, utf8_encode($line));
 											$td[] = explode(" ", utf8_encode($line));
 											$row++;
-											$column = str_getcsv(utf8_encode($line), ';');
+											$column = str_getcsv(utf8_encode($line), DELIMITADOR);
 											?><?php
 											if($row == 1){
 												?>
@@ -71,7 +74,7 @@
 													<tr>
 														<?php
 														foreach($th as $value){
-															$cols = 17;
+															$cols = count($th[0]);
 															for ($i=0; $i < $cols; $i++) { 
 																?>
 																<th scope="col" style="font-size: 12px"><?= $value[$i] ?></th>
@@ -136,12 +139,12 @@
 		$(document).ready( function () {
 			$('.table').DataTable({
 				"processing": true,
-				"paging":   false,
+				"paging":   true,
 				"ordering": false,
 				"scrollX": true,
 				"scrollY":        "400px",
 				"scrollCollapse": true,
-				"searching": false,
+				"searching": true,
 				"info": false,
 				"responsive": true,
 			});
